@@ -1,6 +1,6 @@
 package com.location.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("etudiant")
+//@DiscriminatorValue("etudiant")
 public class Etudiant extends Personne {
 
     @Column(name="annee_Entree")
@@ -21,3 +21,5 @@ public class Etudiant extends Personne {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Note> notes;
 }
+
+

@@ -1,34 +1,32 @@
 package com.location.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name ="cours")
-@Data
+@Getter@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cours {
     @Id
     @GeneratedValue(strategy = GenerationType. IDENTITY )
-    @Column(name="numero_Cours")
-    private Long numeroCours ;
-    @Column(name="cours_Uuid")
-    @NotBlank
-    private  String coursUuid ;
+    @Column(name="id")
+    private Long id ;
+
+    @Column(name="uuid")
+    private UUID uuid ;
+
     @Column(name="libelle_Cours")
     private String libelleCours ;
 
     @ManyToMany(mappedBy = "courses")
     private List<Enseignant> Enseignants = new ArrayList<>();
 
-    @ManyToOne
     @JoinColumn(name = "salle_id")
-    private Salle salle;
+    private Long salle_id;
 }

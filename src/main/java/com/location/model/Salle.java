@@ -1,12 +1,13 @@
 package com.location.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name ="salle")
@@ -17,9 +18,10 @@ public class Salle {
     @Id
     @GeneratedValue(strategy = GenerationType. IDENTITY )
     @Column(name="numero_Salle")
-    private long numeroSalle ;
+    private long salle_id ;
     private String nom ;
     private int capacite ;
-    @OneToMany(mappedBy = "salle")
+    private UUID uuid ;
+    @OneToMany
     private List<Cours> courses = new ArrayList<>();
 }

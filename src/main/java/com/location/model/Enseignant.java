@@ -1,6 +1,6 @@
 package com.location.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Table(name ="enseignant")
 @Data @AllArgsConstructor@NoArgsConstructor
-@DiscriminatorValue("enseignant")
+//@DiscriminatorValue("enseignant")
 public class Enseignant  extends Personne {
 
     @Column(name="date_Prise_Fonction")

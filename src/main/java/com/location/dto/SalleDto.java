@@ -1,19 +1,22 @@
 package com.location.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.location.model.Cours;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SalleDto {
 
-    private long numeroSalle ;
     private String nom ;
     private int capacite ;
+    private UUID uuid ;
+    private List<Cours> courses = new ArrayList<>();
+
 }

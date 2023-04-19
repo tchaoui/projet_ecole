@@ -1,11 +1,13 @@
 package com.location.model;
 
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name ="college")
@@ -15,10 +17,9 @@ public class College {
     @GeneratedValue(strategy = GenerationType. IDENTITY )
     @Column(name="code_College")
     private long codeCollege ;
-    @Column(name="college_Uuid")
-    @NotBlank
-    private  String collegeUuid ;
 
+    @Column(name="uuid")
+    private UUID uuid ;
 
     @Column(name="nom")
     private String nom ;

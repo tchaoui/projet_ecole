@@ -1,13 +1,16 @@
 package com.location.model;
 
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name ="departement")
@@ -15,15 +18,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Departement {
+
     @Id
     @GeneratedValue(strategy = GenerationType. IDENTITY )
     @Column(name="code_departement")
     private long codeDepartement ;
-    @Column(name="cours_uuid")
-    @NotBlank
-    private  String coursUuid ;
+
+    //@Column(name="uuid")
+    private UUID uuid ;
+
     @Column(name="nom")
     private String nom ;
+
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL)
     private List<College> colleges;
 }
